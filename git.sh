@@ -38,4 +38,4 @@ cat  $HOME/github.txt
 
 git config --global user.name "Ayoub EL Mhamdi"
 git config --global user.email "ayoub.elmhamdi@gmail.com"
-git config core.editor "nvim"
+git config --global core.editor "nvim"
