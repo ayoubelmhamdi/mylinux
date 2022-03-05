@@ -76,3 +76,4 @@ sudo xbps-install -Sy       \
         intel-gmmlib        \
         intel-gmmlib-devel  \
         kitty               \
+        wpa_supplicant      \
