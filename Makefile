@@ -33,3 +33,5 @@ test:
 	@# mkswap affect fstab
 	@# ln -s $HOME/scripts/latex/latexpkg /sbin/
 	@# ln -s $HOME/scripts/latex/tlmgr /sbin/
+	@# grub-install --target=i386-efi --efi-directory=/boot/efi --bootloader-id=gentoo
+	@# xbps-install linux
