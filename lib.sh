@@ -77,3 +77,6 @@ sudo xbps-install -Sy       \
         intel-gmmlib-devel  \
         kitty               \
         wpa_supplicant      \
+        iwd                 \
+        MEGAcmd             \
+
