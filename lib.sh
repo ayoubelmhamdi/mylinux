@@ -79,4 +79,5 @@ sudo xbps-install -Sy       \
         wpa_supplicant      \
         iwd                 \
         MEGAcmd             \
+        dmenu               \
 

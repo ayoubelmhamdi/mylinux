@@ -18,12 +18,17 @@ void-installer:
 	@ mkdir -p /mega/cloud/blur /mega/repo/dotfiles  /opt/applist/npm.list
 	@ echo "mega-login ayoub@ayoub.com 1234678"
 	@ mega-login $(login)
+	@ mkdir -p /mega/repo
+	@ mkdir -p /mega/cloud
+	@ mega-sync /mega/repo repo
+	@ mega-sync /mega/cloud cloud
 	@ echo "symlik files"
-	@ rm -rf /etc/fstab                                      && ln -s $HOME/stow/etc/fstab /etc/fstab
-	@ rm -rf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf	  && ln -s $HOME/stow/etc/wpa_supplicant/wpa_supplicant-wlan0.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
-	@ rm -rf /etc/sv/agetty-tty1/conf                        && ln -s $HOME/stow/etc/etc/sv/agetty-tty1/conf /etc/sv/agetty-tty1/conf
-	@ rm -rf /root/.config/nvim/init.lua                     && ln -s $HOME/.config/nvim/lua/nvimrc.lua /root/.config/nvim/init.lua
-	@ rm -rf /root/.config/nvim/after                        && ln -s $HOME/.config/nvim/lua/afterlink /root/.config/nvim/after
+	@ cp $$HOME/stow/etc/fstab /etc/fstab2
+	@#rm -rf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf	 && ln -s $$HOME/stow/etc/wpa_supplicant/wpa_supplicant-wlan0.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+	@ rm -rf /mega/cloud/blur/bg.ff                          && ln -s /mega/cloud/blur/10.ff /mega/cloud/blur/bg.ff                          
+	@ rm -rf /etc/sv/agetty-tty1/conf                        && cp    $$HOME/stow//etc/sv/agetty-tty1/conf /etc/sv/agetty-tty1/conf
+	@ rm -rf /root/.config/nvim/init.lua                     && ln -s $$HOME/.config/nvim/lua/nvimrc.lua /root/.config/nvim/init.lua
+	@ rm -rf /root/.config/nvim/after                        && ln -s $$HOME/.config/nvim/lua/afterlink /root/.config/nvim/after
 	@ rm -rf /opt/applist
 	@ ln -s  /mega/repo/dotfiles/applist /opt/applist
 	@ echo "fin void-installer:"
@@ -31,7 +36,10 @@ void-installer:
 test:
 	@echo "test"
 	@# mkswap affect fstab
-	@# ln -s $HOME/scripts/latex/latexpkg /sbin/
-	@# ln -s $HOME/scripts/latex/tlmgr /sbin/
+	@# ln -s $$HOME/scripts/latex/latexpkg /sbin/
+	@# ln -s $$HOME/scripts/latex/tlmgr /sbin/
 	@# grub-install --target=i386-efi --efi-directory=/boot/efi --bootloader-id=gentoo
 	@# xbps-install linux
+
+new:
+	@echo "test"
